@@ -48,6 +48,7 @@
   #include "ADCConfigBlock.h"
   #include "AIOContinuousBuffer.h"
   #include "AIOChannelMask.h"
+  #include "AIOCustomEEPROM.h"
   #include "AIODeviceTable.h"    
   #include "AIODeviceQuery.h"
   #include "AIOProductTypes.h"
