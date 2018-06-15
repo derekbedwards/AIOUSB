@@ -3,6 +3,8 @@
 
 %include "cpointer.i"
 %include "carrays.i"
+%include "cdata.i"
+%include "cmalloc.i"
 %include "typemaps.i"
 %include "aioarrays.i"
 #if defined(SWIGJAVA)
@@ -23,7 +25,8 @@
 %pointer_functions( char , cp );
 %pointer_functions( unsigned char , ucp );
 %array_functions( char , cstring );
-
+%malloc( unsigned char, ucp );
+%free( unsigned char, ucp );
 
 %apply unsigned long *INOUT { unsigned long *result };
 %apply long long { int64_t };
@@ -543,6 +546,7 @@ AIOUSBDevice *AIODeviceTableGetDeviceAtIndex( unsigned long DeviceIndex , unsign
 %include "USBDevice.h"
 
 
+%aioarray_class(unsigned char,uchararray)
 %aioarray_class(unsigned short,ushortarray)
 %aioarray_class(double,doublearray)
 
