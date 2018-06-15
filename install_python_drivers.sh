@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Building/Installing AIOUSB Python Drivers"
+
 # Install apt requirements
 sudo apt-get install -y libusb-1.0 libusb-1.0-0-dev cmake swig python-dev fxload
 
@@ -8,7 +10,7 @@ cd ~
 wget https://github.com/derekbedwards/AIOUSB/archive/master.zip
 
 # Unzip drivers
-unzip master.zip
+unzip master.zip && rm master.zip
 
 # Build drivers
 cd AIOUSB-master/AIOUSB
@@ -29,3 +31,7 @@ sudo cp python/build/lib.linux-$(uname -m)-${pyver}/* /usr/lib/python${pyver}/
 # Copy lib to usb/lib
 sudo cp ~/AIOUSB-master/AIOUSB/lib/libaiousb.so /usr/lib
 sudo cp ~/AIOUSB-master/AIOUSB/lib/libaiousb*.so /usr/lib
+
+rm -rf ~/AIOUSB-master/
+
+echo "Installation complete"
